@@ -1,0 +1,9 @@
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/Cyles.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/install.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/Cyles_autogen_timestamp_deps.dir
+/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/CMakeFiles/Cyles_autogen.dir
