@@ -10,6 +10,8 @@ qt_add_executable(Cyles
     main.cpp
     mainwindow.cpp
     mainwindow.h
+    FileFilterProxyModel.h
+    FileFilterProxyModel.cpp
 )
 
 target_link_libraries(Cyles

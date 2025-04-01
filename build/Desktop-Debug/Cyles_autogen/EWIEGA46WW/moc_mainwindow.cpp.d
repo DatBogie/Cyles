@@ -1,5 +1,6 @@
 /home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/Cyles_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/dat-bogie/Documents/Qt/Cyles/mainwindow.h \
   /home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/Cyles_autogen/moc_predefs.h \
+  /home/dat-bogie/Documents/Qt/Cyles/FileFilterProxyModel.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -258,6 +259,7 @@
   /usr/include/linux/types.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtCore/QSortFilterProxyModel \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/q20functional.h \
   /usr/include/qt6/QtCore/q20iterator.h \
@@ -266,6 +268,7 @@
   /usr/include/qt6/QtCore/q20utility.h \
   /usr/include/qt6/QtCore/q23utility.h \
   /usr/include/qt6/QtCore/qabstractitemmodel.h \
+  /usr/include/qt6/QtCore/qabstractproxymodel.h \
   /usr/include/qt6/QtCore/qalgorithms.h \
   /usr/include/qt6/QtCore/qanystringview.h \
   /usr/include/qt6/QtCore/qarraydata.h \
@@ -351,6 +354,7 @@
   /usr/include/qt6/QtCore/qsharedpointer.h \
   /usr/include/qt6/QtCore/qsharedpointer_impl.h \
   /usr/include/qt6/QtCore/qsize.h \
+  /usr/include/qt6/QtCore/qsortfilterproxymodel.h \
   /usr/include/qt6/QtCore/qspan.h \
   /usr/include/qt6/QtCore/qstring.h \
   /usr/include/qt6/QtCore/qstringalgorithms.h \

@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "Cyles_autogen"
   "CMakeFiles/Cyles.dir/Cyles_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/Cyles.dir/Cyles_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/Cyles.dir/FileFilterProxyModel.cpp.o"
+  "CMakeFiles/Cyles.dir/FileFilterProxyModel.cpp.o.d"
   "CMakeFiles/Cyles.dir/main.cpp.o"
   "CMakeFiles/Cyles.dir/main.cpp.o.d"
   "CMakeFiles/Cyles.dir/mainwindow.cpp.o"

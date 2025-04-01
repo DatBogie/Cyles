@@ -71,13 +71,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 23,
+				"line" : 24,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 15,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
@@ -358,7 +358,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				4
+				5
 			]
 		},
 		{
@@ -373,14 +373,15 @@
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				3
+				3,
+				4
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				5
+				6
 			]
 		}
 	],
@@ -408,6 +409,11 @@
 		{
 			"backtrace" : 4,
 			"path" : "mainwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "FileFilterProxyModel.h",
 			"sourceGroupIndex" : 2
 		},
 		{
