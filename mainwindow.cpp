@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "FileFilterProxyModel.h"
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
@@ -18,6 +17,7 @@
 #include <QUrl>
 #include <QIcon>
 #include <QSortFilterProxyModel>
+#include <QIcon>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -36,7 +36,9 @@ MainWindow::MainWindow(QWidget *parent)
     QHBoxLayout* topBar = new QHBoxLayout();
     mainLay->addLayout(topBar);
 
-    QPushButton* upDir = new QPushButton(QIcon::fromTheme(QIcon::ThemeIcon::GoUp),"");
+
+
+    QPushButton* upDir = new QPushButton(QIcon(":/arrow_up_white.svg"),"");
     topBar->addWidget(upDir);
     connect(upDir,&QPushButton::clicked,this,&MainWindow::upOneDir);
 
@@ -50,10 +52,6 @@ MainWindow::MainWindow(QWidget *parent)
     mainLay->addWidget(fileTree);
     connect(fileTree,&QTreeView::doubleClicked,this,&MainWindow::openFile);
 
-    fileProxy = new FileFilterProxyModel();
-    fileProxy->setSourceModel(fileModel);
-    fileProxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
-
     QHBoxLayout* btmBar = new QHBoxLayout();
     mainLay->addLayout(btmBar);
 
@@ -61,8 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     btmBar->addWidget(fltrBar);
     connect(fltrBar,&QLineEdit::textChanged,this,&MainWindow::updateFilter);
 
-    fileProxy->setSourceModel(fileModel);
-    fileTree->setModel(fileProxy);
+    fileTree->setModel(fileModel);
 
     updateAddress();
 }
@@ -78,7 +75,8 @@ void MainWindow::updateAddress() {
     fileModel->setRootPath(address);
     // fileProxy->setSourceModel(fileModel);
     // fileTree->setModel(fileProxy);
-    fileTree->setRootIndex(fileProxy->mapFromSource(fileModel->index(address)));
+    fileTree->setRootIndex(fileModel->index(address));
+    // fileTree->setRootIndex(fileProxy->mapFromSource(fileModel->index(address)));
 }
 
 void MainWindow::openFile(const QModelIndex &index) {
@@ -101,6 +99,5 @@ void MainWindow::upOneDir() {
 }
 
 void MainWindow::updateFilter(const QString &fltr) {
-    fileProxy->setFilterRegularExpression(QRegularExpression(fltr, QRegularExpression::CaseInsensitiveOption));
-    fileTree->setRootIndex(fileProxy->mapFromSource(fileModel->index(address)));
+
 }

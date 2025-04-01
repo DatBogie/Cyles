@@ -1,0 +1,20 @@
+# ninja log v6
+76	210	1743513478119865190	Cyles_autogen/timestamp	df6c37f7838906c1
+1485	4719	1743512340057240514	CMakeFiles/Cyles.dir/main.cpp.o	80f0ac19cbc0f42d
+76	210	1743513478119865190	Cyles_autogen/mocs_compilation.cpp	df6c37f7838906c1
+1484	4684	1743512340056818590	CMakeFiles/Cyles.dir/Cyles_autogen/mocs_compilation.cpp.o	e85beb9d03ba365d
+76	210	1743513478119865190	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/timestamp	df6c37f7838906c1
+76	210	1743513478119865190	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/mocs_compilation.cpp	df6c37f7838906c1
+211	3867	1743513478254959428	CMakeFiles/Cyles.dir/mainwindow.cpp.o	5c77e30787100d1
+201	3113	1743511581690175385	CMakeFiles/Cyles.dir/FileFilterProxyModel.cpp.o	1335d6fb9f68bf03
+3867	4467	1743513481910402347	Cyles.app/Contents/MacOS/Cyles	dbc47cda494f8fa3
+118	258	1743513633128514837	Cyles_autogen/timestamp	df6c37f7838906c1
+118	258	1743513633128514837	Cyles_autogen/mocs_compilation.cpp	df6c37f7838906c1
+118	258	1743513633128514837	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/timestamp	df6c37f7838906c1
+118	258	1743513633128514837	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/mocs_compilation.cpp	df6c37f7838906c1
+51	206	1743513653723665100	Cyles_autogen/timestamp	df6c37f7838906c1
+51	206	1743513653723665100	Cyles_autogen/mocs_compilation.cpp	df6c37f7838906c1
+51	206	1743513653723665100	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/timestamp	df6c37f7838906c1
+51	206	1743513653723665100	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/mocs_compilation.cpp	df6c37f7838906c1
+206	3860	1743513653879019570	CMakeFiles/Cyles.dir/mainwindow.cpp.o	5c77e30787100d1
+3861	4236	1743513657533298555	Cyles.app/Contents/MacOS/Cyles	dbc47cda494f8fa3

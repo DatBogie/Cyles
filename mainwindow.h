@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "FileFilterProxyModel.h"
 #include <QMainWindow>
 #include <QLineEdit>
 #include <QString>
@@ -21,7 +20,6 @@ private:
     QTreeView* fileTree;
     QFileSystemModel* fileModel;
     QLineEdit* fltrBar;
-    FileFilterProxyModel* fileProxy;
 private slots:
     void exit();
     void updateAddress();
