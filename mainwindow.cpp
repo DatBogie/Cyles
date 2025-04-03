@@ -21,6 +21,7 @@
 #include <QIcon>
 #include <QInputDialog>
 #include <iostream>
+#include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,7 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
     setMinimumSize(640,480);
     QMenuBar* menu = menuBar();
     QMenu* fileM = menu->addMenu(tr("&File"));
+    connect(fileM->addAction(tr("New &Folder")),&QAction::triggered,this,&MainWindow::mkDir);
+    connect(fileM->addAction(tr("&New File")),&QAction::triggered,this,&MainWindow::touch);
     QAction* exitAct = fileM->addAction(tr("E&xit"));
+    exitAct->setMenuRole(QAction::NoRole);
     connect(exitAct,&QAction::triggered,this,&MainWindow::exit);
 
     QWidget* win = new QWidget();
@@ -62,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
     mainLay->addLayout(btmBar);
 
     fltrBar = new QLineEdit();
+    fltrBar->setPlaceholderText("Filter...");
     btmBar->addWidget(fltrBar);
     connect(fltrBar,&QLineEdit::textChanged,this,&MainWindow::updateFilter);
 
@@ -149,4 +154,22 @@ void MainWindow::fileContextMenu(const QPoint &pt) {
     connect(fileContext->addAction("Rename"),&QAction::triggered,this,[this, ind](void){ renameFile(ind); });
     connect(fileContext->addAction("Delete"),&QAction::triggered,this,[this, ind](void){ delFile(ind); });
     fileContext->exec(fileTree->viewport()->mapToGlobal(pt));
+}
+
+void MainWindow::mkDir() {
+    bool s;
+    QString name = QInputDialog::getText(this,"Create Folder","Folder name:",QLineEdit::Normal,"",&s);
+    if (!s) return;
+    QDir(address).mkdir(name);
+}
+
+void MainWindow::touch() {
+    bool s;
+    QString name = QInputDialog::getText(this,"Create Folder","Folder name:",QLineEdit::Normal,"",&s);
+    if (!s) return;
+    QFile f(QFileInfo(address).path()+"/"+name);
+    if (f.open(QIODevice::WriteOnly)) {
+        // QTextStream fi(f.fileName());
+        f.close();
+    }
 }

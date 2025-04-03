@@ -23,6 +23,8 @@ private:
     QLineEdit* fltrBar;
     QMenu* fileContext;
 private slots:
+    void mkDir();
+    void touch();
     void exit();
     void updateAddress();
     void openFile(const QModelIndex &index);
