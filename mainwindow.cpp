@@ -10,6 +10,7 @@
 #include <QLineEdit>
 #include <QSizePolicy>
 #include <QDir>
+#include <QFile>
 #include <QTreeView>
 #include <QFileSystemModel>
 #include <QDesktopServices>
@@ -18,6 +19,8 @@
 #include <QIcon>
 #include <QSortFilterProxyModel>
 #include <QIcon>
+#include <QInputDialog>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -65,7 +68,6 @@ MainWindow::MainWindow(QWidget *parent)
     fileTree->setModel(fileModel);
 
     fileContext = new QMenu();
-    fileContext->addAction("Open");
 
     updateAddress();
 }
@@ -95,6 +97,25 @@ void MainWindow::openFile(const QModelIndex &index) {
     }
 }
 
+void MainWindow::renameFile(const QModelIndex &index) {
+    QString filePath = fileModel->filePath(index);
+    bool s;
+    QString name = QInputDialog::getText(this,"Rename File","Rename file to:",QLineEdit::Normal,"",&s);
+    if (!s) return;
+    QFile f(filePath);
+    f.rename(QFileInfo(filePath).dir().path()+"/"+name);
+    updateAddress();
+}
+
+void MainWindow::delFile(const QModelIndex &index) {
+    QString filePath = fileModel->filePath(index);
+    if (QFileInfo(filePath).isDir()) {
+        QDir(filePath).removeRecursively();
+    } else {
+        QFile(filePath).remove();
+    }
+}
+
 void MainWindow::upOneDir() {
     QModelIndex currRoot = fileTree->rootIndex();
     QModelIndex parInd = currRoot.parent();
@@ -105,17 +126,27 @@ void MainWindow::upOneDir() {
 }
 
 void MainWindow::updateFilter(const QString &fltr) {
-
+    QModelIndex root = fileModel->index(fileModel->rootPath());
+    for (int y=0; y<fileModel->rowCount(root); ++y) {
+        QModelIndex ind = fileModel->index(y,0,root);
+        if (!ind.isValid()) continue;
+        QString filePath = fileModel->filePath(ind);
+        fileTree->setRowHidden(y,root, !(QFileInfo(filePath).fileName().toLower().contains(fltr.toLower())) );
+    }
 }
 
 void MainWindow::fileContextMenu(const QPoint &pt) {
     QModelIndex ind = fileTree->indexAt(pt);
-    if (ind.isValid()) return;
+    if (!ind.isValid()) return;
     QString filePath = fileModel->filePath(ind);
     if (QFileInfo(filePath).isDir()) {
 
     } else {
 
     }
+    fileContext->clear();
+    connect(fileContext->addAction("Open"),&QAction::triggered,this,[this, ind](void){ openFile(ind); });
+    connect(fileContext->addAction("Rename"),&QAction::triggered,this,[this, ind](void){ renameFile(ind); });
+    connect(fileContext->addAction("Delete"),&QAction::triggered,this,[this, ind](void){ delFile(ind); });
     fileContext->exec(fileTree->viewport()->mapToGlobal(pt));
 }

@@ -26,6 +26,8 @@ private slots:
     void exit();
     void updateAddress();
     void openFile(const QModelIndex &index);
+    void renameFile(const QModelIndex &index);
+    void delFile(const QModelIndex &index);
     void upOneDir();
     void updateFilter(const QString &fltr);
     void fileContextMenu(const QPoint &pt);
