@@ -6,6 +6,7 @@
 #include <QString>
 #include <QTreeView>
 #include <QFileSystemModel>
+#include <QMenu>
 
 class MainWindow : public QMainWindow
 {
@@ -20,11 +21,13 @@ private:
     QTreeView* fileTree;
     QFileSystemModel* fileModel;
     QLineEdit* fltrBar;
+    QMenu* fileContext;
 private slots:
     void exit();
     void updateAddress();
     void openFile(const QModelIndex &index);
     void upOneDir();
     void updateFilter(const QString &fltr);
+    void fileContextMenu(const QPoint &pt);
 };
 #endif // MAINWINDOW_H

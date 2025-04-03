@@ -939,6 +939,7 @@ Cyles_autogen/timestamp: \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QLineEdit \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QMenu \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QTreeView \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemdelegate.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemview.h \
@@ -948,6 +949,7 @@ Cyles_autogen/timestamp: \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qlineedit.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qmenu.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qrubberband.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qslider.h \

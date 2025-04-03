@@ -10,7 +10,7 @@ qt_add_executable(Cyles
     main.cpp
     mainwindow.cpp
     mainwindow.h
-    resources.qrc
+
 
 
 )

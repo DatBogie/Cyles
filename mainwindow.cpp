@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-    QPushButton* upDir = new QPushButton(QIcon(":/arrow_up_white.svg"),"");
+    QPushButton* upDir = new QPushButton(QIcon("../../../../../images/arrow_up_white.svg"),"");
     topBar->addWidget(upDir);
     connect(upDir,&QPushButton::clicked,this,&MainWindow::upOneDir);
 
@@ -52,6 +52,9 @@ MainWindow::MainWindow(QWidget *parent)
     mainLay->addWidget(fileTree);
     connect(fileTree,&QTreeView::doubleClicked,this,&MainWindow::openFile);
 
+    fileTree->setContextMenuPolicy(Qt::ContextMenuPolicy::CustomContextMenu);
+    connect(fileTree, &QTreeView::customContextMenuRequested, this, &MainWindow::fileContextMenu);
+
     QHBoxLayout* btmBar = new QHBoxLayout();
     mainLay->addLayout(btmBar);
 
@@ -60,6 +63,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(fltrBar,&QLineEdit::textChanged,this,&MainWindow::updateFilter);
 
     fileTree->setModel(fileModel);
+
+    fileContext = new QMenu();
+    fileContext->addAction("Open");
 
     updateAddress();
 }
@@ -100,4 +106,16 @@ void MainWindow::upOneDir() {
 
 void MainWindow::updateFilter(const QString &fltr) {
 
+}
+
+void MainWindow::fileContextMenu(const QPoint &pt) {
+    QModelIndex ind = fileTree->indexAt(pt);
+    if (ind.isValid()) return;
+    QString filePath = fileModel->filePath(ind);
+    if (QFileInfo(filePath).isDir()) {
+
+    } else {
+
+    }
+    fileContext->exec(fileTree->viewport()->mapToGlobal(pt));
 }

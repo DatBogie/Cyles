@@ -936,6 +936,7 @@
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QLineEdit
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow
+ mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QMenu
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QTreeView
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemdelegate.h
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemview.h
@@ -945,6 +946,7 @@
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qframe.h
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qlineedit.h
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h
+ mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qmenu.h
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qrubberband.h
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h
  mdp:/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qslider.h
