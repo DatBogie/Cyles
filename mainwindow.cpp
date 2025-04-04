@@ -27,6 +27,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    setWindowTitle("Cyles");
     setMinimumSize(640,480);
     QMenuBar* menu = menuBar();
     QMenu* fileM = menu->addMenu(tr("&File"));
@@ -47,14 +48,29 @@ MainWindow::MainWindow(QWidget *parent)
     QPushButton* addrBack = new QPushButton(QIcon("../../../../../images/arrow_back_white.svg"),"");
     topBar->addWidget(addrBack);
     connect(addrBack,&QPushButton::clicked,this,&MainWindow::addrBack);
+    if (CylesUtils::OS != "MAC")
+        addrBack->setToolTip("Ctrl + Left");
+    else
+        addrBack->setToolTip("CMD + Left");
 
     QPushButton* addrFwd = new QPushButton(QIcon("../../../../../images/arrow_forward_white.svg"),"");
     topBar->addWidget(addrFwd);
     connect(addrFwd,&QPushButton::clicked,this,&MainWindow::addrForward);
+    if (CylesUtils::OS != "MAC")
+        addrFwd->setToolTip("Ctrl + Right");
+    else
+        addrFwd->setToolTip("CMD + Right");
 
     QPushButton* upDir = new QPushButton(QIcon("../../../../../images/arrow_up_white.svg"),"");
     topBar->addWidget(upDir);
     connect(upDir,&QPushButton::clicked,this,&MainWindow::upOneDir);
+    if (CylesUtils::OS != "MAC")
+        upDir->setToolTip("Ctrl + Up");
+    else
+        upDir->setToolTip("CMD + Up");
+
+    QHBoxLayout* midBar = new QHBoxLayout();
+    mainLay->addLayout(midBar);
 
     address = QDir::homePath();
     addrHistory.push_back(address);
@@ -76,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent)
     mainLay->addLayout(btmBar);
 
     fltrBar = new QLineEdit();
-    fltrBar->setPlaceholderText("Filter...");
+    fltrBar->setPlaceholderText("Type to filter...");
     btmBar->addWidget(fltrBar);
     connect(fltrBar,&QLineEdit::textChanged,this,&MainWindow::updateFilter);
 
@@ -125,7 +141,7 @@ void MainWindow::openFile(const QModelIndex &index) {
 void MainWindow::renameFile(const QModelIndex &index) {
     QString filePath = fileModel->filePath(index);
     bool s;
-    QString name = QInputDialog::getText(this,"Rename File","Rename file to:",QLineEdit::Normal,"",&s);
+    QString name = QInputDialog::getText(this,"Rename File","Rename '"+QFileInfo(filePath).fileName()+"' to:",QLineEdit::Normal,"",&s);
     if (!s) return;
     QFile f(filePath);
     f.rename(QFileInfo(filePath).dir().path()+"/"+name);
@@ -134,7 +150,7 @@ void MainWindow::renameFile(const QModelIndex &index) {
 
 void MainWindow::delFile(const QModelIndex &index) {
     QString filePath = fileModel->filePath(index);
-    QMessageBox::StandardButton s = QMessageBox::warning(this,"Delete File","Delete "+filePath+" perminently?",QMessageBox::StandardButton::Yes | QMessageBox::StandardButton::Cancel,QMessageBox::StandardButton::Cancel);
+    QMessageBox::StandardButton s = QMessageBox::warning(this,"Delete File","Delete "+QFileInfo(filePath).fileName()+" perminently?",QMessageBox::StandardButton::Yes | QMessageBox::StandardButton::Cancel,QMessageBox::StandardButton::Cancel);
     if (s == QMessageBox::StandardButton::Cancel) return;
     if (QFileInfo(filePath).isDir()) {
         QDir(filePath).removeRecursively();
@@ -192,10 +208,11 @@ void MainWindow::fileContextMenu(const QPoint &pt) {
     connect(fileContext->addAction("Delete"),&QAction::triggered,this,[this, ind](void){ delFile(ind); });
     if (QFileInfo(filePath).isDir()) {
         fileContext->addSeparator();
+        connect(fileContext->addAction("New Folder Here"),&QAction::triggered,this,[this, filePath](void){ mkDirFromPath(filePath); });
+        connect(fileContext->addAction("New File Here"),&QAction::triggered,this,[this, filePath](void){ touchFromPath(filePath); });
+    } else {
         connect(fileContext->addAction("New Folder"),&QAction::triggered,this,[this, filePath](void){ mkDirFromPath(filePath); });
         connect(fileContext->addAction("New File"),&QAction::triggered,this,[this, filePath](void){ touchFromPath(filePath); });
-    } else {
-
     }
     fileContext->exec(fileTree->viewport()->mapToGlobal(pt));
 }

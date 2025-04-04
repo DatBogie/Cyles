@@ -17,3 +17,13 @@ const std::string CylesUtils::QStringVectorToStdString(std::vector<QString> x) {
     str+="]";
     return str.toStdString();
 }
+
+#if defined(_WIN32)
+const std::string CylesUtils::OS = "WIN";
+#elif defined(__APPLE__)
+const std::string CylesUtils::OS = "MAC";
+#elif defined(__LINUX__)
+const std::string CylesUtils::OS = "LIN";
+#else
+const std::string CylesUtils::OS = "OTHER";
+#endif
