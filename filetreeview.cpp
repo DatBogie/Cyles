@@ -12,6 +12,10 @@ FileTreeView::FileTreeView(MainWindow* win)
 
 void FileTreeView::keyPressEvent(QKeyEvent *event) {
     // std::cout << std::to_string(event->key()) << std::endl;
+    if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_Q) {
+        QTreeView::keyPressEvent(event);
+        return;
+    }
     if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_Up) {
         win->upOneDir();
         return;

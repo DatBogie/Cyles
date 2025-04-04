@@ -196,6 +196,7 @@ void MainWindow::updateFilter(const QString &fltr) {
     if (firstInd < fileModel->rowCount(root)) {
         fileTree->setCurrentIndex(fileModel->index(firstInd,0,root));
     }
+    if (fltr != fltrBar->text()) fltrBar->setText(fltr);
 }
 
 void MainWindow::fileContextMenu(const QPoint &pt) {
@@ -248,5 +249,12 @@ void MainWindow::touchFromPath(QString filePath) {
     QFile f(QFileInfo(filePath).filePath()+"/"+name);
     if (f.open(QIODevice::WriteOnly)) {
         f.close();
+    }
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event) {
+    if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_Q) {
+        exit();
+        return;
     }
 }

@@ -44,5 +44,7 @@ public slots:
     void addrForward();
     void updateFilter(const QString &fltr);
     void fileContextMenu(const QPoint &pt);
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 };
 #endif // MAINWINDOW_H
