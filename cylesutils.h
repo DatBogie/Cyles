@@ -9,6 +9,7 @@ class CylesUtils
 {
 public:
     static const std::string QStringVectorToStdString(std::vector<QString> x);
+    static const std::string OS;
 };
 
 #endif // CYLESUTILS_H

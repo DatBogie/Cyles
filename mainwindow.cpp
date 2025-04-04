@@ -27,6 +27,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    setWindowTitle("Cyles");
     setMinimumSize(640,480);
     QMenuBar* menu = menuBar();
     QMenu* fileM = menu->addMenu(tr("&File"));
@@ -47,14 +48,26 @@ MainWindow::MainWindow(QWidget *parent)
     QPushButton* addrBack = new QPushButton(QIcon("../../../../../images/arrow_back_white.svg"),"");
     topBar->addWidget(addrBack);
     connect(addrBack,&QPushButton::clicked,this,&MainWindow::addrBack);
+    if (CylesUtils::OS != "MAC")
+        addrBack->setToolTip("Ctrl + Left");
+    else
+        addrBack->setToolTip("CMD + Left");
 
     QPushButton* addrFwd = new QPushButton(QIcon("../../../../../images/arrow_forward_white.svg"),"");
     topBar->addWidget(addrFwd);
     connect(addrFwd,&QPushButton::clicked,this,&MainWindow::addrForward);
+    if (CylesUtils::OS != "MAC")
+        addrFwd->setToolTip("Ctrl + Right");
+    else
+        addrFwd->setToolTip("CMD + Right");
 
     QPushButton* upDir = new QPushButton(QIcon("../../../../../images/arrow_up_white.svg"),"");
     topBar->addWidget(upDir);
     connect(upDir,&QPushButton::clicked,this,&MainWindow::upOneDir);
+    if (CylesUtils::OS != "MAC")
+        upDir->setToolTip("Ctrl + Up");
+    else
+        upDir->setToolTip("CMD + Up");
 
     address = QDir::homePath();
     addrHistory.push_back(address);
