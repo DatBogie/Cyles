@@ -19,13 +19,13 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QLineEdit* fltrBar;
 private:
     QString address;
     std::vector<QString> addrHistory;
     QLineEdit* addrBar;
     FileTreeView* fileTree;
     QFileSystemModel* fileModel;
-    QLineEdit* fltrBar;
     QMenu* fileContext;
     int addrInd = 0;
 public slots:

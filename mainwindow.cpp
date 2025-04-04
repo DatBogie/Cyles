@@ -21,8 +21,8 @@
 #include <QSortFilterProxyModel>
 #include <QIcon>
 #include <QInputDialog>
+#include <QMessageBox>
 #include <iostream>
-#include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -56,11 +56,12 @@ MainWindow::MainWindow(QWidget *parent)
     topBar->addWidget(upDir);
     connect(upDir,&QPushButton::clicked,this,&MainWindow::upOneDir);
 
-    addrBar = new QLineEdit(QDir::homePath());
+    address = QDir::homePath();
+    addrHistory.push_back(address);
+
+    addrBar = new QLineEdit(address);
     topBar->addWidget(addrBar);
     connect(addrBar,&QLineEdit::returnPressed,this,&MainWindow::updateAddress);
-
-    address = addrBar->text();
 
     fileModel = new QFileSystemModel();
 
@@ -83,7 +84,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     fileContext = new QMenu();
 
-    updateAddress();
+    updateAddressNoHistory();
 }
 
 MainWindow::~MainWindow() {}
@@ -96,15 +97,19 @@ void MainWindow::updateAddress() {
     address = addrBar->text();
     fileModel->setRootPath(address);
     fileTree->setRootIndex(fileModel->index(address));
-    addrHistory.insert(addrHistory.begin() + addrInd, address);
     addrInd++;
-    // std::cout << CylesUtils::QStringVectorToStdString(addrHistory) << std::endl << std::to_string(addrInd) << std::endl;
+    if (addrInd > addrHistory.size()) addrHistory.resize(addrHistory.size()+1);
+    addrHistory.insert(addrHistory.begin() + addrInd, address);
+    std::cout << CylesUtils::QStringVectorToStdString(addrHistory) << std::endl << std::to_string(addrInd) << std::endl;
+    updateFilter("");
 }
 
 void MainWindow::updateAddressNoHistory() {
     address = addrBar->text();
     fileModel->setRootPath(address);
     fileTree->setRootIndex(fileModel->index(address));
+    std::cout << CylesUtils::QStringVectorToStdString(addrHistory) << std::endl << std::to_string(addrInd) << std::endl;
+    updateFilter("");
 }
 
 void MainWindow::openFile(const QModelIndex &index) {
@@ -129,6 +134,8 @@ void MainWindow::renameFile(const QModelIndex &index) {
 
 void MainWindow::delFile(const QModelIndex &index) {
     QString filePath = fileModel->filePath(index);
+    QMessageBox::StandardButton s = QMessageBox::warning(this,"Delete File","Delete "+filePath+" perminently?",QMessageBox::StandardButton::Yes | QMessageBox::StandardButton::Cancel,QMessageBox::StandardButton::Cancel);
+    if (s == QMessageBox::StandardButton::Cancel) return;
     if (QFileInfo(filePath).isDir()) {
         QDir(filePath).removeRecursively();
     } else {
@@ -161,11 +168,17 @@ void MainWindow::addrForward() {
 
 void MainWindow::updateFilter(const QString &fltr) {
     QModelIndex root = fileModel->index(fileModel->rootPath());
+    int firstInd = fileModel->rowCount(root);
     for (int y=0; y<fileModel->rowCount(root); ++y) {
         QModelIndex ind = fileModel->index(y,0,root);
         if (!ind.isValid()) continue;
         QString filePath = fileModel->filePath(ind);
-        fileTree->setRowHidden(y,root, !(QFileInfo(filePath).fileName().toLower().contains(fltr.toLower())) );
+        bool hide = !(QFileInfo(filePath).fileName().toLower().contains(fltr.toLower()));
+        fileTree->setRowHidden(y,root,hide);
+        if (!hide && y< firstInd) firstInd=y;
+    }
+    if (firstInd < fileModel->rowCount(root)) {
+        fileTree->setCurrentIndex(fileModel->index(firstInd,0,root));
     }
 }
 
@@ -207,7 +220,6 @@ void MainWindow::touch() {
     if (!s) return;
     QFile f(QFileInfo(address).filePath()+"/"+name);
     if (f.open(QIODevice::WriteOnly)) {
-        // QTextStream fi(f.fileName());
         f.close();
     }
 }
@@ -218,7 +230,6 @@ void MainWindow::touchFromPath(QString filePath) {
     if (!s) return;
     QFile f(QFileInfo(filePath).filePath()+"/"+name);
     if (f.open(QIODevice::WriteOnly)) {
-        // QTextStream fi(f.fileName());
         f.close();
     }
 }
