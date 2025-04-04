@@ -1,12 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "filetreeview.h"
 #include <QMainWindow>
 #include <QLineEdit>
 #include <QString>
-#include <QTreeView>
 #include <QFileSystemModel>
 #include <QMenu>
+#include <vector>
+
+#pragma once
+class FileTreeView;
 
 class MainWindow : public QMainWindow
 {
@@ -17,20 +21,27 @@ public:
     ~MainWindow();
 private:
     QString address;
+    std::vector<QString> addrHistory;
     QLineEdit* addrBar;
-    QTreeView* fileTree;
+    FileTreeView* fileTree;
     QFileSystemModel* fileModel;
     QLineEdit* fltrBar;
     QMenu* fileContext;
-private slots:
+    int addrInd = 0;
+public slots:
     void mkDir();
+    void mkDirFromPath(QString filePath);
     void touch();
+    void touchFromPath(QString filePath);
     void exit();
     void updateAddress();
+    void updateAddressNoHistory();
     void openFile(const QModelIndex &index);
     void renameFile(const QModelIndex &index);
     void delFile(const QModelIndex &index);
     void upOneDir();
+    void addrBack();
+    void addrForward();
     void updateFilter(const QString &fltr);
     void fileContextMenu(const QPoint &pt);
 };

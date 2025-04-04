@@ -73,6 +73,22 @@ build CMakeFiles/Cyles.dir/mainwindow.cpp.o: CXX_COMPILER__Cyles_unscanned_Debug
   OBJECT_DIR = CMakeFiles/Cyles.dir
   OBJECT_FILE_DIR = CMakeFiles/Cyles.dir
 
+build CMakeFiles/Cyles.dir/filetreeview.cpp.o: CXX_COMPILER__Cyles_unscanned_Debug /Users/dat-bogie/Cyles/filetreeview.cpp || cmake_object_order_depends_target_Cyles
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Cyles.dir/filetreeview.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.7 -fcolor-diagnostics
+  INCLUDES = -I/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/include -isystem /Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Headers -iframework /Users/dat-bogie/Qt/6.8.2/macos/lib -isystem /Users/dat-bogie/Qt/6.8.2/macos/mkspecs/macx-clang -isystem /Users/dat-bogie/Qt/6.8.2/macos/include -isystem /Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/Cyles.dir
+  OBJECT_FILE_DIR = CMakeFiles/Cyles.dir
+
+build CMakeFiles/Cyles.dir/cylesutils.cpp.o: CXX_COMPILER__Cyles_unscanned_Debug /Users/dat-bogie/Cyles/cylesutils.cpp || cmake_object_order_depends_target_Cyles
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Cyles.dir/cylesutils.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.7 -fcolor-diagnostics
+  INCLUDES = -I/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/include -isystem /Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Headers -iframework /Users/dat-bogie/Qt/6.8.2/macos/lib -isystem /Users/dat-bogie/Qt/6.8.2/macos/mkspecs/macx-clang -isystem /Users/dat-bogie/Qt/6.8.2/macos/include -isystem /Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/Cyles.dir
+  OBJECT_FILE_DIR = CMakeFiles/Cyles.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Cyles
@@ -81,7 +97,7 @@ build CMakeFiles/Cyles.dir/mainwindow.cpp.o: CXX_COMPILER__Cyles_unscanned_Debug
 #############################################
 # Link the executable Cyles.app/Contents/MacOS/Cyles
 
-build Cyles.app/Contents/MacOS/Cyles: CXX_EXECUTABLE_LINKER__Cyles_Debug CMakeFiles/Cyles.dir/Cyles_autogen/mocs_compilation.cpp.o CMakeFiles/Cyles.dir/main.cpp.o CMakeFiles/Cyles.dir/mainwindow.cpp.o | /Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/QtCore || Cyles_autogen Cyles_autogen_timestamp_deps
+build Cyles.app/Contents/MacOS/Cyles: CXX_EXECUTABLE_LINKER__Cyles_Debug CMakeFiles/Cyles.dir/Cyles_autogen/mocs_compilation.cpp.o CMakeFiles/Cyles.dir/main.cpp.o CMakeFiles/Cyles.dir/mainwindow.cpp.o CMakeFiles/Cyles.dir/filetreeview.cpp.o CMakeFiles/Cyles.dir/cylesutils.cpp.o | /Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/QtGui /Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/QtCore || Cyles_autogen Cyles_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.7
   LINK_LIBRARIES = -Wl,-rpath,/Users/dat-bogie/Qt/6.8.2/macos/lib  /Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets  /Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/QtGui  -framework AGL  -framework AppKit  -framework OpenGL  -framework ImageIO  -framework Metal  /Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/QtCore  -framework IOKit  -framework DiskArbitration  -framework UniformTypeIdentifiers
   LINK_PATH = -F/Users/dat-bogie/Qt/6.8.2/macos/lib

@@ -767,9 +767,18 @@ Cyles_autogen/timestamp: \
 	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
 	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/moc_predefs.h \
+	/Users/dat-bogie/Cyles/cylesutils.cpp \
+	/Users/dat-bogie/Cyles/cylesutils.h \
+	/Users/dat-bogie/Cyles/filetreeview.cpp \
+	/Users/dat-bogie/Cyles/filetreeview.h \
 	/Users/dat-bogie/Cyles/main.cpp \
 	/Users/dat-bogie/Cyles/mainwindow.cpp \
 	/Users/dat-bogie/Cyles/mainwindow.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/QList \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/QObject \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/QRect \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/QSize \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/QSizeF \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/QString \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/q20iterator.h \
@@ -803,13 +812,19 @@ Cyles_autogen/timestamp: \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qcontainerinfo.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qcontainertools_impl.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qcontiguouscache.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qcoreapplication.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qcoreapplication_platform.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qcoreevent.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qdarwinhelpers.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qdatastream.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qdatetime.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qdeadlinetimer.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qdir.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qdirlisting.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qelapsedtimer.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qendian.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qeventloop.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qfile.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qfiledevice.h \
@@ -842,6 +857,7 @@ Cyles_autogen/timestamp: \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qmetatype.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qminmax.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qnamespace.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qnativeinterface.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qnumeric.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qobject.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qobject_impl.h \
@@ -906,27 +922,38 @@ Cyles_autogen/timestamp: \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/QFileSystemModel \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/QKeyEvent \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/QTransform \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qaction.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qcolor.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qcursor.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qevent.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qeventpoint.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qfilesystemmodel.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qfont.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qfontinfo.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qfontmetrics.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qguiapplication.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qguiapplication_platform.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qicon.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qimage.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qinputdevice.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qinputmethod.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qpen.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qpointingdevice.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qregion.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qscreen.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qscreen_platform.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qtextcursor.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qtextdocument.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qtextformat.h \
@@ -936,11 +963,14 @@ Cyles_autogen/timestamp: \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qvalidator.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qvector2d.h \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qvectornd.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QLineEdit \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QMenu \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QTreeView \
+	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemdelegate.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemview.h \
 	/Users/dat-bogie/Qt/6.8.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractscrollarea.h \

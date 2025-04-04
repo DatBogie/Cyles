@@ -306,6 +306,18 @@
 	"HEADERS" : 
 	[
 		[
+			"/Users/dat-bogie/Cyles/cylesutils.h",
+			"MU",
+			"EWIEGA46WW/moc_cylesutils.cpp",
+			null
+		],
+		[
+			"/Users/dat-bogie/Cyles/filetreeview.h",
+			"MU",
+			"EWIEGA46WW/moc_filetreeview.cpp",
+			null
+		],
+		[
 			"/Users/dat-bogie/Cyles/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -370,6 +382,8 @@
 	"SETTINGS_FILE" : "/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/Cyles_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "/Users/dat-bogie/Cyles/cylesutils.cpp", "MU", null ],
+		[ "/Users/dat-bogie/Cyles/filetreeview.cpp", "MU", null ],
 		[ "/Users/dat-bogie/Cyles/main.cpp", "MU", null ],
 		[ "/Users/dat-bogie/Cyles/mainwindow.cpp", "MU", null ]
 	],

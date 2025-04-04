@@ -10,6 +10,8 @@ qt_add_executable(Cyles
     main.cpp
     mainwindow.cpp
     mainwindow.h
+    filetreeview.h filetreeview.cpp
+    cylesutils.h cylesutils.cpp
 
 
 

@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include "filetreeview.h"
+#include "cylesutils.h"
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
@@ -11,7 +13,6 @@
 #include <QSizePolicy>
 #include <QDir>
 #include <QFile>
-#include <QTreeView>
 #include <QFileSystemModel>
 #include <QDesktopServices>
 #include <QString>
@@ -43,7 +44,13 @@ MainWindow::MainWindow(QWidget *parent)
     QHBoxLayout* topBar = new QHBoxLayout();
     mainLay->addLayout(topBar);
 
+    QPushButton* addrBack = new QPushButton(QIcon("../../../../../images/arrow_back_white.svg"),"");
+    topBar->addWidget(addrBack);
+    connect(addrBack,&QPushButton::clicked,this,&MainWindow::addrBack);
 
+    QPushButton* addrFwd = new QPushButton(QIcon("../../../../../images/arrow_forward_white.svg"),"");
+    topBar->addWidget(addrFwd);
+    connect(addrFwd,&QPushButton::clicked,this,&MainWindow::addrForward);
 
     QPushButton* upDir = new QPushButton(QIcon("../../../../../images/arrow_up_white.svg"),"");
     topBar->addWidget(upDir);
@@ -53,14 +60,16 @@ MainWindow::MainWindow(QWidget *parent)
     topBar->addWidget(addrBar);
     connect(addrBar,&QLineEdit::returnPressed,this,&MainWindow::updateAddress);
 
+    address = addrBar->text();
+
     fileModel = new QFileSystemModel();
 
-    fileTree = new QTreeView();
+    fileTree = new FileTreeView(this);
     mainLay->addWidget(fileTree);
-    connect(fileTree,&QTreeView::doubleClicked,this,&MainWindow::openFile);
+    connect(fileTree,&FileTreeView::doubleClicked,this,&MainWindow::openFile);
 
     fileTree->setContextMenuPolicy(Qt::ContextMenuPolicy::CustomContextMenu);
-    connect(fileTree, &QTreeView::customContextMenuRequested, this, &MainWindow::fileContextMenu);
+    connect(fileTree, &FileTreeView::customContextMenuRequested, this, &MainWindow::fileContextMenu);
 
     QHBoxLayout* btmBar = new QHBoxLayout();
     mainLay->addLayout(btmBar);
@@ -86,10 +95,16 @@ void MainWindow::exit() {
 void MainWindow::updateAddress() {
     address = addrBar->text();
     fileModel->setRootPath(address);
-    // fileProxy->setSourceModel(fileModel);
-    // fileTree->setModel(fileProxy);
     fileTree->setRootIndex(fileModel->index(address));
-    // fileTree->setRootIndex(fileProxy->mapFromSource(fileModel->index(address)));
+    addrHistory.insert(addrHistory.begin() + addrInd, address);
+    addrInd++;
+    // std::cout << CylesUtils::QStringVectorToStdString(addrHistory) << std::endl << std::to_string(addrInd) << std::endl;
+}
+
+void MainWindow::updateAddressNoHistory() {
+    address = addrBar->text();
+    fileModel->setRootPath(address);
+    fileTree->setRootIndex(fileModel->index(address));
 }
 
 void MainWindow::openFile(const QModelIndex &index) {
@@ -130,6 +145,20 @@ void MainWindow::upOneDir() {
     }
 }
 
+void MainWindow::addrBack() {
+    if (addrInd-1 < 0) return;
+    addrInd--;
+    addrBar->setText(addrHistory[addrInd]);
+    updateAddressNoHistory();
+}
+
+void MainWindow::addrForward() {
+    if (addrInd+1 >= addrHistory.size()) return;
+    addrInd++;
+    addrBar->setText(addrHistory[addrInd]);
+    updateAddressNoHistory();
+}
+
 void MainWindow::updateFilter(const QString &fltr) {
     QModelIndex root = fileModel->index(fileModel->rootPath());
     for (int y=0; y<fileModel->rowCount(root); ++y) {
@@ -144,15 +173,17 @@ void MainWindow::fileContextMenu(const QPoint &pt) {
     QModelIndex ind = fileTree->indexAt(pt);
     if (!ind.isValid()) return;
     QString filePath = fileModel->filePath(ind);
-    if (QFileInfo(filePath).isDir()) {
-
-    } else {
-
-    }
     fileContext->clear();
     connect(fileContext->addAction("Open"),&QAction::triggered,this,[this, ind](void){ openFile(ind); });
     connect(fileContext->addAction("Rename"),&QAction::triggered,this,[this, ind](void){ renameFile(ind); });
     connect(fileContext->addAction("Delete"),&QAction::triggered,this,[this, ind](void){ delFile(ind); });
+    if (QFileInfo(filePath).isDir()) {
+        fileContext->addSeparator();
+        connect(fileContext->addAction("New Folder"),&QAction::triggered,this,[this, filePath](void){ mkDirFromPath(filePath); });
+        connect(fileContext->addAction("New File"),&QAction::triggered,this,[this, filePath](void){ touchFromPath(filePath); });
+    } else {
+
+    }
     fileContext->exec(fileTree->viewport()->mapToGlobal(pt));
 }
 
@@ -163,11 +194,29 @@ void MainWindow::mkDir() {
     QDir(address).mkdir(name);
 }
 
-void MainWindow::touch() {
+void MainWindow::mkDirFromPath(QString filePath) {
     bool s;
     QString name = QInputDialog::getText(this,"Create Folder","Folder name:",QLineEdit::Normal,"",&s);
     if (!s) return;
-    QFile f(QFileInfo(address).path()+"/"+name);
+    QDir(filePath).mkdir(name);
+}
+
+void MainWindow::touch() {
+    bool s;
+    QString name = QInputDialog::getText(this,"Create File","File name:",QLineEdit::Normal,"",&s);
+    if (!s) return;
+    QFile f(QFileInfo(address).filePath()+"/"+name);
+    if (f.open(QIODevice::WriteOnly)) {
+        // QTextStream fi(f.fileName());
+        f.close();
+    }
+}
+
+void MainWindow::touchFromPath(QString filePath) {
+    bool s;
+    QString name = QInputDialog::getText(this,"Create File","File name:",QLineEdit::Normal,"",&s);
+    if (!s) return;
+    QFile f(QFileInfo(filePath).filePath()+"/"+name);
     if (f.open(QIODevice::WriteOnly)) {
         // QTextStream fi(f.fileName());
         f.close();
