@@ -763,6 +763,7 @@ Cyles_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_time.h \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdarg.h \
 	/Users/dat-bogie/Cyles/CMakeLists.txt \
+	/Users/dat-bogie/Cyles/Resources.qrc \
 	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/.qtc/package-manager/auto-setup.cmake \
 	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
 	/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \

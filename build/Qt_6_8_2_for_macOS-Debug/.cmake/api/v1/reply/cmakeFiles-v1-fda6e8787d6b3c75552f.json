@@ -1242,6 +1242,9 @@
 			"path" : "/Users/dat-bogie/Qt/6.8.2/macos/lib/cmake/Qt6/macos/Info.plist.app.in"
 		},
 		{
+			"path" : "Resources.qrc"
+		},
+		{
 			"isGenerated" : true,
 			"path" : "build/Qt_6_8_2_for_macOS-Debug/.qt/info_plist/Cyles/Info.plist"
 		}

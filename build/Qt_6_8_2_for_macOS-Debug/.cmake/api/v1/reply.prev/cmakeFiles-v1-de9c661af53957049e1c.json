@@ -1233,6 +1233,10 @@
 			"path" : "/Users/dat-bogie/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.30/Modules/GNUInstallDirs.cmake"
 		},
 		{
+			"isExternal" : true,
+			"path" : "/Users/dat-bogie/Qt/6.8.2/macos/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in"
+		},
+		{
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "/Users/dat-bogie/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.30/Modules/GNUInstallDirs.cmake"
@@ -1240,6 +1244,9 @@
 		{
 			"isExternal" : true,
 			"path" : "/Users/dat-bogie/Qt/6.8.2/macos/lib/cmake/Qt6/macos/Info.plist.app.in"
+		},
+		{
+			"path" : "Resources.qrc"
 		},
 		{
 			"isGenerated" : true,

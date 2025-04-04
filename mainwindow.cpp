@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
     QHBoxLayout* topBar = new QHBoxLayout();
     mainLay->addLayout(topBar);
 
-    QPushButton* addrBack = new QPushButton(QIcon("../../../../../images/arrow_back_white.svg"),"");
+    QPushButton* addrBack = new QPushButton(QIcon(":/images/arrow_back_white.svg"),"");
     topBar->addWidget(addrBack);
     connect(addrBack,&QPushButton::clicked,this,&MainWindow::addrBack);
     if (CylesUtils::OS != "MAC")
@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
     else
         addrBack->setToolTip("CMD + Left");
 
-    QPushButton* addrFwd = new QPushButton(QIcon("../../../../../images/arrow_forward_white.svg"),"");
+    QPushButton* addrFwd = new QPushButton(QIcon(":/images/arrow_forward_white.svg"),"");
     topBar->addWidget(addrFwd);
     connect(addrFwd,&QPushButton::clicked,this,&MainWindow::addrForward);
     if (CylesUtils::OS != "MAC")
@@ -61,19 +61,16 @@ MainWindow::MainWindow(QWidget *parent)
     else
         addrFwd->setToolTip("CMD + Right");
 
-    QPushButton* upDir = new QPushButton(QIcon("../../../../../images/arrow_up_white.svg"),"");
+    QPushButton* upDir = new QPushButton(QIcon(":/images/arrow_up_white.svg"),"");
     topBar->addWidget(upDir);
     connect(upDir,&QPushButton::clicked,this,&MainWindow::upOneDir);
     if (CylesUtils::OS != "MAC")
         upDir->setToolTip("Ctrl + Up");
     else
         upDir->setToolTip("CMD + Up");
-<<<<<<< HEAD
 
     QHBoxLayout* midBar = new QHBoxLayout();
     mainLay->addLayout(midBar);
-=======
->>>>>>> eebe32ee1585cfcbc849cc3e08a8bd3db9c1b24c
 
     address = QDir::homePath();
     addrHistory.push_back(address);

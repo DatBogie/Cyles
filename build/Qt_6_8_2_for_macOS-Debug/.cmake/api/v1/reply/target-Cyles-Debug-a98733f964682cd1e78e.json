@@ -45,7 +45,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 8,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
@@ -285,7 +285,8 @@
 				1,
 				2,
 				5,
-				7
+				7,
+				10
 			]
 		}
 	],
@@ -405,7 +406,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				8
+				9,
+				10
 			]
 		},
 		{
@@ -428,10 +430,18 @@
 			]
 		},
 		{
+			"name" : "Resources",
+			"sourceIndexes" : 
+			[
+				8
+			]
+		},
+		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				9
+				11,
+				12
 			]
 		}
 	],
@@ -484,6 +494,11 @@
 			"sourceGroupIndex" : 1
 		},
 		{
+			"backtrace" : 4,
+			"path" : "Resources.qrc",
+			"sourceGroupIndex" : 3
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/timestamp",
@@ -491,9 +506,22 @@
 		},
 		{
 			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/EWIEGA46WW/qrc_Resources.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/timestamp.rule",
-			"sourceGroupIndex" : 3
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Qt_6_8_2_for_macOS-Debug/Cyles_autogen/EWIEGA46WW/qrc_Resources.cpp.rule",
+			"sourceGroupIndex" : 4
 		}
 	],
 	"type" : "EXECUTABLE"

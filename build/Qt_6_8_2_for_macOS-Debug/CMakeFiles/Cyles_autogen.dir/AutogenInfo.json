@@ -297,7 +297,8 @@
 		"/Users/dat-bogie/Qt/6.8.2/macos/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
 		"/Users/dat-bogie/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.30/Modules/GNUInstallDirs.cmake",
 		"/Users/dat-bogie/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.30/Modules/GNUInstallDirs.cmake",
-		"/Users/dat-bogie/Qt/6.8.2/macos/lib/cmake/Qt6/macos/Info.plist.app.in"
+		"/Users/dat-bogie/Qt/6.8.2/macos/lib/cmake/Qt6/macos/Info.plist.app.in",
+		"/Users/dat-bogie/Cyles/Resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/Users/dat-bogie/Cyles",
 	"CROSS_CONFIG" : false,

@@ -3,6 +3,8 @@ project(Cyles LANGUAGES CXX)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
 
+set(CMAKE_AUTORCC ON)
+
 qt_standard_project_setup()
 
 qt_add_executable(Cyles
@@ -12,9 +14,7 @@ qt_add_executable(Cyles
     mainwindow.h
     filetreeview.h filetreeview.cpp
     cylesutils.h cylesutils.cpp
-
-
-
+    Resources.qrc
 )
 
 target_link_libraries(Cyles
