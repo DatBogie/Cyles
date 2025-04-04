@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-0328f0d76be9f7a39556.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Cyles",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Cyles::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Cyles-Debug-b1d2c8e447f061c825c4.json",
+					"name" : "Cyles",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Cyles_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Cyles_autogen-Debug-a9cf396760a569aa0450.json",
+					"name" : "Cyles_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Cyles_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Cyles_autogen_timestamp_deps-Debug-7d8cadd0d3fd83fe170a.json",
+					"name" : "Cyles_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/dat-bogie/Cyles/build/Desktop-Debug",
+		"source" : "/home/dat-bogie/Cyles"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

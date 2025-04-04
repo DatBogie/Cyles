@@ -1,4 +1,4 @@
-# Install script for directory: /home/dat-bogie/Documents/Qt/Cyles
+# Install script for directory: /home/dat-bogie/Cyles
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -49,7 +49,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Cyles"
          RPATH "\$ORIGIN:\$ORIGIN/../lib")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/Cyles")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/dat-bogie/Cyles/build/Desktop-Debug/Cyles")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Cyles" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/Cyles")
     file(RPATH_CHANGE
@@ -63,13 +63,13 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/.qt/deploy_Cyles_8c83389252.cmake")
+  include("/home/dat-bogie/Cyles/build/Desktop-Debug/.qt/deploy_Cyles_8c83389252.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/install_local_manifest.txt"
+  file(WRITE "/home/dat-bogie/Cyles/build/Desktop-Debug/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -85,6 +85,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/dat-bogie/Documents/Qt/Cyles/build/Desktop-Debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/dat-bogie/Cyles/build/Desktop-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

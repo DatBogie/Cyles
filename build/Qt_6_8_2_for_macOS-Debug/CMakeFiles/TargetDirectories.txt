@@ -1,9 +1,0 @@
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/Cyles.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/edit_cache.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/rebuild_cache.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/list_install_components.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/install.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/install/local.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/install/strip.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/Cyles_autogen_timestamp_deps.dir
-/Users/dat-bogie/Cyles/build/Qt_6_8_2_for_macOS-Debug/CMakeFiles/Cyles_autogen.dir
