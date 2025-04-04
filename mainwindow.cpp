@@ -68,9 +68,12 @@ MainWindow::MainWindow(QWidget *parent)
         upDir->setToolTip("Ctrl + Up");
     else
         upDir->setToolTip("CMD + Up");
+<<<<<<< HEAD
 
     QHBoxLayout* midBar = new QHBoxLayout();
     mainLay->addLayout(midBar);
+=======
+>>>>>>> eebe32ee1585cfcbc849cc3e08a8bd3db9c1b24c
 
     address = QDir::homePath();
     addrHistory.push_back(address);
