@@ -1,4 +1,4 @@
-/home/dat-bogie/Cyles/build/Desktop-Debug/Cyles_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/dat-bogie/Cyles/mainwindow.h \
+/home/dat-bogie/Cyles/build/Desktop-Debug/Cyles_autogen/EWIEGA46WW/moc_prefwindow.cpp: /home/dat-bogie/Cyles/prefwindow.h \
   /home/dat-bogie/Cyles/build/Desktop-Debug/Cyles_autogen/moc_predefs.h \
   /home/dat-bogie/Cyles/filetreeview.h \
   /home/dat-bogie/Cyles/mainwindow.h \
@@ -466,6 +466,7 @@
   /usr/include/qt6/QtGui/qvectornd.h \
   /usr/include/qt6/QtGui/qwindowdefs.h \
   /usr/include/qt6/QtWidgets/QApplication \
+  /usr/include/qt6/QtWidgets/QComboBox \
   /usr/include/qt6/QtWidgets/QLineEdit \
   /usr/include/qt6/QtWidgets/QMainWindow \
   /usr/include/qt6/QtWidgets/QMenu \
@@ -477,6 +478,7 @@
   /usr/include/qt6/QtWidgets/qabstractslider.h \
   /usr/include/qt6/QtWidgets/qabstractspinbox.h \
   /usr/include/qt6/QtWidgets/qapplication.h \
+  /usr/include/qt6/QtWidgets/qcombobox.h \
   /usr/include/qt6/QtWidgets/qframe.h \
   /usr/include/qt6/QtWidgets/qlineedit.h \
   /usr/include/qt6/QtWidgets/qmainwindow.h \

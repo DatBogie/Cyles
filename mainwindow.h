@@ -8,6 +8,7 @@
 #include <QFileSystemModel>
 #include <QMenu>
 #include <vector>
+#include <QApplication>
 
 #pragma once
 class FileTreeView;
@@ -20,6 +21,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QLineEdit* fltrBar;
+    QApplication* app;
 private:
     QString address;
     std::vector<QString> addrHistory;

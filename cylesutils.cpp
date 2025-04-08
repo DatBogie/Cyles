@@ -27,3 +27,5 @@ const std::string CylesUtils::OS = "LIN";
 #else
 const std::string CylesUtils::OS = "OTHER";
 #endif
+
+QString CylesUtils::SystemStyle = "";

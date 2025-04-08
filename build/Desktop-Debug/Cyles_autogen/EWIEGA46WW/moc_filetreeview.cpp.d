@@ -465,6 +465,7 @@
   /usr/include/qt6/QtGui/qvector2d.h \
   /usr/include/qt6/QtGui/qvectornd.h \
   /usr/include/qt6/QtGui/qwindowdefs.h \
+  /usr/include/qt6/QtWidgets/QApplication \
   /usr/include/qt6/QtWidgets/QLineEdit \
   /usr/include/qt6/QtWidgets/QMainWindow \
   /usr/include/qt6/QtWidgets/QMenu \
@@ -475,6 +476,7 @@
   /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
   /usr/include/qt6/QtWidgets/qabstractslider.h \
   /usr/include/qt6/QtWidgets/qabstractspinbox.h \
+  /usr/include/qt6/QtWidgets/qapplication.h \
   /usr/include/qt6/QtWidgets/qframe.h \
   /usr/include/qt6/QtWidgets/qlineedit.h \
   /usr/include/qt6/QtWidgets/qmainwindow.h \

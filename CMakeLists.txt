@@ -15,6 +15,8 @@ qt_add_executable(Cyles
     filetreeview.h filetreeview.cpp
     cylesutils.h cylesutils.cpp
     Resources.qrc
+    prefwindow.h prefwindow.cpp
+
 )
 
 target_link_libraries(Cyles
