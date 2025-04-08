@@ -16,6 +16,9 @@ qt_add_executable(Cyles
     cylesutils.h cylesutils.cpp
     Resources.qrc
     prefwindow.h prefwindow.cpp
+    themebuilder.h themebuilder.cpp
+    theme.h theme.cpp
+    cylessignals.h cylessignals.cpp
 
 )
 

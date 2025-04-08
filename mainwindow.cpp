@@ -30,15 +30,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setWindowTitle("Cyles");
     setMinimumSize(640,480);
-    PrefWindow* pref = new PrefWindow();
+    PrefWindow* pref = new PrefWindow(this);
     QMenuBar* menu = menuBar();
 
     QMenu* fileM = menu->addMenu(tr("&File"));
     connect(fileM->addAction(tr("New &Folder...")),&QAction::triggered,this,&MainWindow::mkDir);
     connect(fileM->addAction(tr("&New File...")),&QAction::triggered,this,&MainWindow::touch);
-    QAction* exitAct = fileM->addAction(tr("E&xit"));
-    exitAct->setMenuRole(QAction::NoRole);
-    connect(exitAct,&QAction::triggered,this,&MainWindow::exit);
+    connect(fileM->addAction(tr("E&xit")),&QAction::triggered,this,&MainWindow::exit);
 
     QMenu* editM = menu->addMenu(tr("&Edit"));
     pref->connect(editM->addAction(tr("&Preferences...")),&QAction::triggered,pref,&PrefWindow::toggle);

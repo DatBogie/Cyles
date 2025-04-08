@@ -12,13 +12,17 @@ class PrefWindow : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PrefWindow(MainWindow* win = nullptr);
+    explicit PrefWindow(MainWindow* win);
     void toggle();
     MainWindow* win;
 private slots:
     void updateTheme(int index);
+    void createTheme();
+    void deleteTheme();
 private:
     QComboBox* styleBox;
+    QComboBox* themeBox;
+    void themesUpdated();
 };
 
 #endif // PREFWINDOW_H
