@@ -16,6 +16,7 @@ public:
     QColor TextInputColor;
     QColor BackgroundColor;
     QColor AccentColor;
+    QString toQString();
 };
 
 #endif // THEME_H

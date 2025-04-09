@@ -13,6 +13,10 @@
 #pragma once
 class FileTreeView;
 
+#include "theme.h"
+#pragma once
+class Theme;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

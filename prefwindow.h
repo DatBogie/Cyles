@@ -16,6 +16,7 @@ public:
     void toggle();
     MainWindow* win;
 private slots:
+    void updateStyle(int index);
     void updateTheme(int index);
     void createTheme();
     void deleteTheme();

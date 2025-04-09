@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "filetreeview.h"
 #include "cylesutils.h"
+#include "theme.h"
 #include "prefwindow.h"
 #include <QMenuBar>
 #include <QMenu>
@@ -257,6 +258,7 @@ void MainWindow::touchFromPath(QString filePath) {
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event) {
+    std::cout << styleSheet().toStdString() << std::endl;
     if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_Q) {
         exit();
         return;

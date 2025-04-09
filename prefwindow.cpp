@@ -40,7 +40,7 @@ PrefWindow::PrefWindow(MainWindow* win) {
     styleBox->addItems(QStyleFactory::keys());
     styleBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     styleLay->addWidget(styleBox);
-    connect(styleBox,&QComboBox::activated,this,&PrefWindow::updateTheme);
+    connect(styleBox,&QComboBox::activated,this,&PrefWindow::updateStyle);
 
     QHBoxLayout* themeLay = new QHBoxLayout();
     mainLay->addLayout(themeLay);
@@ -52,6 +52,7 @@ PrefWindow::PrefWindow(MainWindow* win) {
     themeBox->addItem("System");
     themeBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     themeLay->addWidget(themeBox);
+    connect(themeBox,&QComboBox::activated,this,&PrefWindow::updateTheme);
 
     QHBoxLayout* themeBtns = new QHBoxLayout();
     mainLay->addLayout(themeBtns);
@@ -70,7 +71,7 @@ void PrefWindow::toggle() {
     setVisible(!isVisible());
 }
 
-void PrefWindow::updateTheme(int index) {
+void PrefWindow::updateStyle(int index) {
     QString styleName = styleBox->itemText(index);
     if (styleName == "System")
         win->app->setStyle(QStyleFactory::create(CylesUtils::SystemStyle));
@@ -78,6 +79,13 @@ void PrefWindow::updateTheme(int index) {
         win->app->setStyle(QStyleFactory::create(CylesUtils::DefaultStyle));
     else
         win->app->setStyle(QStyleFactory::create(styleName));
+}
+
+void PrefWindow::updateTheme(int index) {
+    QString themeName = themeBox->itemText(index);
+    CylesUtils::CurrentTheme = themeName;
+    CylesUtils::ApplyTheme(win->app);
+    // CylesUtils::ApplyTheme(this);
 }
 
 void PrefWindow::createTheme() {
