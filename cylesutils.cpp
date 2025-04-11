@@ -9,6 +9,7 @@
 #include <QWidget>
 #include <QApplication>
 #include <QStyle>
+#include <QStyleFactory>
 
 CylesSignals* CylesUtils::Signals = new CylesSignals();
 
@@ -49,9 +50,9 @@ const void CylesUtils::ApplyTheme(QWidget* widget) {
 
 const void CylesUtils::ApplyTheme(QApplication* app, Theme theme) {
     if (theme.Name != "System") {
-        app->setStyleSheet(theme.toQString());
+        app->setStyle(theme.toThemeStyle());
     } else {
-        app->setStyleSheet("");
+        app->setStyle(QStyleFactory::create(DefaultStyle));
         app->setPalette(app->style()->standardPalette());
     }
 }
@@ -81,7 +82,7 @@ std::vector<QColor*> CylesUtils::colors = {&CylesUtils::ButtonColor,&CylesUtils:
 
 QMap<QString, Theme> CylesUtils::Themes = {
     std::pair{"Dark", Theme("Dark",true,std::vector<QColor>{QColor(45,45,45),QColor(35,35,35),QColor(25,25,25),QColor(21,106,175)})},
-    std::pair{"Light", Theme("Light",true,std::vector<QColor>{QColor(210,210,210),QColor(220,220,220),QColor(230,230,230),QColor(155,205,255)})}
+    std::pair{"Light", Theme("Light",true,std::vector<QColor>{QColor(210,210,210),QColor(220,220,220),QColor(230,230,230),QColor(81,166,235)})}
 };
 QList<QString> CylesUtils::ProtectedThemes = {"System","Dark","Light"};
 QString CylesUtils::CurrentTheme = CylesUtils::Themes.firstKey();

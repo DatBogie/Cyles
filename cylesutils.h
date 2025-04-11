@@ -30,6 +30,12 @@ public:
     static const void ApplyTheme(QWidget* widget);
     static const void ApplyTheme(QApplication* app, Theme theme);
     static const void ApplyTheme(QApplication* app);
+    static QColor LightenQColor(QColor x, int amt) {
+        return QColor(std::clamp(x.red()+amt,0,255),std::clamp(x.green()+amt,0,255),std::clamp(x.blue()+amt,0,255));
+    }
+    static QColor DarkenQColor(QColor x, int amt) {
+        return LightenQColor(x, -amt);
+    }
     static QString SystemStyle;
     static QString DefaultStyle;
     static QColor ButtonColor;
