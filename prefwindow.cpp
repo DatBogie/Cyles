@@ -87,7 +87,11 @@ void PrefWindow::updateStyle(int index) {
 }
 
 void PrefWindow::toggleIconColor(Qt::CheckState state) {
+    if (state == Qt::CheckState::Checked) {
 
+    } else {
+
+    }
 }
 
 // void PrefWindow::updateTheme(int index) {

@@ -10,6 +10,7 @@
 #include <QApplication>
 #include <QStyle>
 #include <QStyleFactory>
+#include <QPixmap>
 
 CylesSignals* CylesUtils::Signals = new CylesSignals();
 
@@ -88,3 +89,7 @@ QString CylesUtils::SystemStyle = "";
 // QString CylesUtils::CurrentTheme = CylesUtils::Themes.firstKey();
 
 bool CylesUtils::useDarkIcons = false;
+
+void CylesUtils::changeQIconColor(const QIcon &icon, const QColor &color) {
+    QPixmap pix = icon.pixmap(icon.availableSizes().isEmpty()? QSize(16,16))
+}
