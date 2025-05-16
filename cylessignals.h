@@ -9,7 +9,8 @@ class CylesSignals : public QObject
 public:
     explicit CylesSignals(QObject *parent = nullptr);
 signals:
-    void ThemesUpdated();
+//     void ThemesUpdated();
+    void IconColorChanged();
 };
 
 #endif // CYLESSIGNALS_H

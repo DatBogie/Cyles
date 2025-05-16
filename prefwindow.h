@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 #include <QWidget>
 #include <QComboBox>
+#include <QCheckBox>
 
 #pragma once
 class MainWindow;
@@ -17,13 +18,15 @@ public:
     MainWindow* win;
 private slots:
     void updateStyle(int index);
-    void updateTheme(int index);
-    void createTheme();
-    void deleteTheme();
+    void toggleIconColor(Qt::CheckState state);
+    // void updateTheme(int index);
+    // void createTheme();
+    // void deleteTheme();
 private:
     QComboBox* styleBox;
-    QComboBox* themeBox;
-    void themesUpdated();
+    QCheckBox* useDarkIcons;
+    // QComboBox* themeBox;
+    // void themesUpdated();
 };
 
 #endif // PREFWINDOW_H

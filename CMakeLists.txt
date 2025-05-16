@@ -19,6 +19,7 @@ qt_add_executable(Cyles
     themebuilder.h themebuilder.cpp
     theme.h theme.cpp
     cylessignals.h cylessignals.cpp
+    iconbutton.h iconbutton.cpp
 
 
 )

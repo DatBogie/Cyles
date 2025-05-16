@@ -13,9 +13,9 @@
 #pragma once
 class FileTreeView;
 
-#include "theme.h"
-#pragma once
-class Theme;
+// #include "theme.h"
+// #pragma once
+// class Theme;
 
 class MainWindow : public QMainWindow
 {
@@ -50,6 +50,8 @@ public slots:
     void addrForward();
     void updateFilter(const QString &fltr);
     void fileContextMenu(const QPoint &pt);
+private slots:
+    void iconColorChanged();
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 };

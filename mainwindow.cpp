@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "filetreeview.h"
 #include "cylesutils.h"
-#include "theme.h"
+// #include "theme.h"
 #include "prefwindow.h"
 #include <QMenuBar>
 #include <QMenu>
@@ -21,7 +21,6 @@
 #include <QUrl>
 #include <QIcon>
 #include <QSortFilterProxyModel>
-#include <QIcon>
 #include <QInputDialog>
 #include <QMessageBox>
 #include <iostream>
@@ -263,4 +262,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
         exit();
         return;
     }
+}
+
+void MainWindow::iconColorChanged() {
+
 }
