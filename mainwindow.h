@@ -9,6 +9,7 @@
 #include <QMenu>
 #include <vector>
 #include <QApplication>
+#include <QModelIndex>
 
 #pragma once
 class FileTreeView;
@@ -34,6 +35,8 @@ private:
     QFileSystemModel* fileModel;
     QMenu* fileContext;
     int addrInd = 0;
+    QString getPathFromIndex(QModelIndex ind);
+    void trash(const QModelIndex &index);
 public slots:
     void mkDir();
     void mkDirFromPath(QString filePath);
@@ -50,8 +53,7 @@ public slots:
     void addrForward();
     void updateFilter(const QString &fltr);
     void fileContextMenu(const QPoint &pt);
-private slots:
-    void iconColorChanged();
+    void newWindow();
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 };

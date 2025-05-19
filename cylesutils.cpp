@@ -11,6 +11,15 @@
 #include <QStyle>
 #include <QStyleFactory>
 #include <QPixmap>
+#include <QMimeData>
+#include <QUrl>
+#include <QClipboard>
+#include <QGuiApplication>
+#include <QMessageBox>
+#include <QFile>
+#include <QFileInfo>
+#include <QStandardPaths>
+#include <QDebug>
 
 CylesSignals* CylesUtils::Signals = new CylesSignals();
 
@@ -90,6 +99,42 @@ QString CylesUtils::SystemStyle = "";
 
 bool CylesUtils::useDarkIcons = false;
 
-void CylesUtils::changeQIconColor(const QIcon &icon, const QColor &color) {
-    QPixmap pix = icon.pixmap(icon.availableSizes().isEmpty()? QSize(16,16))
+void CylesUtils::copyFile(const QString &path) {
+    QMimeData* mime = new QMimeData;
+    QList<QUrl> urls;
+    urls << QUrl::fromLocalFile(path);
+    mime->setUrls(urls);
+
+    QClipboard* clip = QGuiApplication::clipboard();
+    clip->setMimeData(mime);
+}
+
+void CylesUtils::pasteFile(const QString &path, const QString &dest) {
+    const QClipboard *clipboard = QGuiApplication::clipboard();
+    const QMimeData *mimeData = clipboard->mimeData();
+
+    if (mimeData->hasUrls()) {
+        QList<QUrl> urls = mimeData->urls();
+
+        for (const QUrl &url : urls) {
+            if (!url.isLocalFile())
+                continue;
+
+            QString sourceFilePath = url.toLocalFile();
+            QFileInfo fileInfo(sourceFilePath);
+            QString destinationFilePath = dest + "/" + fileInfo.fileName();
+
+            if (!QFile::copy(sourceFilePath, destinationFilePath)) {
+                QMessageBox::critical(nullptr,"PyCuts","Failed to paste file.",QMessageBox::StandardButton::Ok,QMessageBox::StandardButton::Ok);
+            }
+        }
+    }
+}
+
+QString CylesUtils::absPath(const QString &path) {
+    QString result = path;
+    if (path.startsWith("~")) {
+        result = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + path.mid(1);
+    }
+    return result;
 }

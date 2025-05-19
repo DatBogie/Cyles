@@ -48,7 +48,9 @@ public:
     // static QList<QString> ProtectedThemes;
     // static QString CurrentTheme;
     static bool useDarkIcons;
-    static QIcon changeQIconColor(const QIcon& icon, const QColor& color);
+    static void copyFile(const QString &path);
+    static void pasteFile(const QString &path, const QString &dest);
+    static QString absPath(const QString &path);
 };
 
 #endif // CYLESUTILS_H

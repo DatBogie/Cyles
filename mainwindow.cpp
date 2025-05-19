@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "filetreeview.h"
 #include "cylesutils.h"
+#include "iconbutton.h"
 // #include "theme.h"
 #include "prefwindow.h"
 #include <QMenuBar>
@@ -24,6 +25,7 @@
 #include <QInputDialog>
 #include <QMessageBox>
 #include <iostream>
+#include <QClipboard>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -37,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(fileM->addAction(tr("New &Folder...")),&QAction::triggered,this,&MainWindow::mkDir);
     connect(fileM->addAction(tr("&New File...")),&QAction::triggered,this,&MainWindow::touch);
     connect(fileM->addAction(tr("E&xit")),&QAction::triggered,this,&MainWindow::exit);
+    connect(fileM->addAction(tr("New &Window")),&QAction::triggered,this,&MainWindow::newWindow);
 
     QMenu* editM = menu->addMenu(tr("&Edit"));
     pref->connect(editM->addAction(tr("&Preferences...")),&QAction::triggered,pref,&PrefWindow::toggle);
@@ -49,7 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
     QHBoxLayout* topBar = new QHBoxLayout();
     mainLay->addLayout(topBar);
 
-    QPushButton* addrBack = new QPushButton(QIcon(":/images/arrow_back_white.svg"),"");
+    IconButton* addrBack = new IconButton();
+    addrBack->setIcon(":/images/arrow_back_white.svg");
     topBar->addWidget(addrBack);
     connect(addrBack,&QPushButton::clicked,this,&MainWindow::addrBack);
     if (CylesUtils::OS != "MAC")
@@ -57,7 +61,8 @@ MainWindow::MainWindow(QWidget *parent)
     else
         addrBack->setToolTip("CMD + Left");
 
-    QPushButton* addrFwd = new QPushButton(QIcon(":/images/arrow_forward_white.svg"),"");
+    IconButton* addrFwd = new IconButton();
+    addrFwd->setIcon(":/images/arrow_forward_white.svg");
     topBar->addWidget(addrFwd);
     connect(addrFwd,&QPushButton::clicked,this,&MainWindow::addrForward);
     if (CylesUtils::OS != "MAC")
@@ -65,7 +70,8 @@ MainWindow::MainWindow(QWidget *parent)
     else
         addrFwd->setToolTip("CMD + Right");
 
-    QPushButton* upDir = new QPushButton(QIcon(":/images/arrow_up_white.svg"),"");
+    IconButton* upDir = new IconButton();
+    upDir->setIcon(":/images/arrow_up_white.svg");
     topBar->addWidget(upDir);
     connect(upDir,&QPushButton::clicked,this,&MainWindow::upOneDir);
     if (CylesUtils::OS != "MAC")
@@ -114,13 +120,19 @@ void MainWindow::exit() {
 }
 
 void MainWindow::updateAddress() {
-    address = addrBar->text();
+    bool test = QFileInfo::exists(CylesUtils::absPath(addrBar->text()));
+    if (!test) {
+        addrBar->setText(address);
+        return;
+    }
+    address = CylesUtils::absPath(addrBar->text());
+    if (address != addrBar->text())
+        addrBar->setText(address);
     fileModel->setRootPath(address);
     fileTree->setRootIndex(fileModel->index(address));
     addrInd++;
     if (addrInd > addrHistory.size()) addrHistory.resize(addrHistory.size()+1);
     addrHistory.insert(addrHistory.begin() + addrInd, address);
-    std::cout << CylesUtils::QStringVectorToStdString(addrHistory) << std::endl << std::to_string(addrInd) << std::endl;
     updateFilter("");
 }
 
@@ -128,7 +140,6 @@ void MainWindow::updateAddressNoHistory() {
     address = addrBar->text();
     fileModel->setRootPath(address);
     fileTree->setRootIndex(fileModel->index(address));
-    std::cout << CylesUtils::QStringVectorToStdString(addrHistory) << std::endl << std::to_string(addrInd) << std::endl;
     updateFilter("");
 }
 
@@ -150,6 +161,11 @@ void MainWindow::renameFile(const QModelIndex &index) {
     QFile f(filePath);
     f.rename(QFileInfo(filePath).dir().path()+"/"+name);
     updateAddress();
+}
+
+void MainWindow::trash(const QModelIndex &index) {
+    QString filePath = fileModel->filePath(index);
+    QFile(filePath).moveToTrash();
 }
 
 void MainWindow::delFile(const QModelIndex &index) {
@@ -210,6 +226,9 @@ void MainWindow::fileContextMenu(const QPoint &pt) {
     fileContext->clear();
     connect(fileContext->addAction("Open"),&QAction::triggered,this,[this, ind](void){ openFile(ind); });
     connect(fileContext->addAction("Rename"),&QAction::triggered,this,[this, ind](void){ renameFile(ind); });
+    connect(fileContext->addAction("Copy"),&QAction::triggered,this,[this, ind](void){ CylesUtils::copyFile(getPathFromIndex(ind)); });
+    connect(fileContext->addAction("Paste"),&QAction::triggered,this,[this, ind, filePath](void){ CylesUtils::pasteFile(getPathFromIndex(ind),filePath); });
+    connect(fileContext->addAction("Move to Trash"),&QAction::triggered,this,[this, ind](void){ trash(ind); });
     connect(fileContext->addAction("Delete"),&QAction::triggered,this,[this, ind](void){ delFile(ind); });
     if (QFileInfo(filePath).isDir()) {
         fileContext->addSeparator();
@@ -257,13 +276,16 @@ void MainWindow::touchFromPath(QString filePath) {
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event) {
-    std::cout << styleSheet().toStdString() << std::endl;
     if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_Q) {
         exit();
         return;
     }
 }
 
-void MainWindow::iconColorChanged() {
+QString MainWindow::getPathFromIndex(QModelIndex ind) {
+    return fileModel->filePath(ind);
+}
 
+void MainWindow::newWindow() {
+    MainWindow().show();
 }

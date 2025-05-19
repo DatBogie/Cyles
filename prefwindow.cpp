@@ -45,7 +45,7 @@ PrefWindow::PrefWindow(MainWindow* win) {
 
     useDarkIcons = new QCheckBox("Use Dark Icons");
     mainLay->addWidget(useDarkIcons);
-    connect(useDarkIcons,&QCheckBox::checkStateChanged,this,&PrefWindow::ToggleIconColor);
+    connect(useDarkIcons,&QCheckBox::checkStateChanged,this,&PrefWindow::toggleIconColor);
 
     // QHBoxLayout* themeLay = new QHBoxLayout();
     // mainLay->addLayout(themeLay);
@@ -87,11 +87,7 @@ void PrefWindow::updateStyle(int index) {
 }
 
 void PrefWindow::toggleIconColor(Qt::CheckState state) {
-    if (state == Qt::CheckState::Checked) {
-
-    } else {
-
-    }
+    emit CylesUtils::Signals->IconColorChanged();
 }
 
 // void PrefWindow::updateTheme(int index) {
